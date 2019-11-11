@@ -2,12 +2,12 @@ class PuzzlesController < ApplicationController
 
     def index
         puzzles = Puzzle.all
-        render json: puzzles.to_json
+        render json: puzzles
     end
 
     def show
         puzzle = Puzzle.find_by(id: params[:id])
-        render json: puzzle.to_json
+        render json: puzzle
     end
 
 end

@@ -10,11 +10,11 @@ require 'rest-client'
 require 'JSON'
 require 'Faker'
 
-users = []
-3.times do 
-    user = User.create(username: Faker::Internet.username);
-    users << user
-end
+# users = []
+# 3.times do 
+#     user = User.create(username: Faker::Internet.username);
+#     users << user
+# end
 
 dates = []
 20.times do
@@ -27,7 +27,7 @@ end
 dates.map do |date|
     puzzle = RestClient.get "https://raw.githubusercontent.com/doshea/nyt_crosswords/master/" + date + ".json"
     puzzle_array = JSON.parse(puzzle)
-    Puzzle.create(grid: puzzle_array["grid"],gridnums: puzzle_array["gridnums"], cluesAcross: puzzle_array["clues"]["across"],cluesDown: puzzle_array["clues"]["down"],answersAcross: puzzle_array["answers"]["across"],answersDown: puzzle_array["answers"]["down"])
+    Puzzle.create(gridLetters: puzzle_array["grid"], gridNumbers: puzzle_array["gridnums"], cluesAcross: puzzle_array["clues"]["across"], cluesDown: puzzle_array["clues"]["down"], answersAcross: puzzle_array["answers"]["across"], answersDown: puzzle_array["answers"]["down"])
 end
 
 # 8.times do 

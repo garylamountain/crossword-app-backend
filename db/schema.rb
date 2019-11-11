@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_164120) do
   end
 
   create_table "puzzles", force: :cascade do |t|
-    t.string "grid", default: [], array: true
-    t.integer "gridnums", default: [], array: true
+    t.string "gridLetters", default: [], array: true
+    t.integer "gridNumbers", default: [], array: true
     t.string "cluesAcross", default: [], array: true
     t.string "cluesDown", default: [], array: true
     t.string "answersAcross", default: [], array: true
