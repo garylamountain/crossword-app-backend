@@ -10,12 +10,6 @@ require 'rest-client'
 require 'JSON'
 require 'Faker'
 
-# users = []
-# 3.times do 
-#     user = User.create(username: Faker::Internet.username);
-#     users << user
-# end
-
 dates = []
 20.times do
     date = Faker::Date.between(from: Date.new(1979,01,01),to: Date.new(2014,12,31))
@@ -33,75 +27,3 @@ end
 # 8.times do 
 #     Game.create(user: users.sample, puzzle: Puzzle.all.sample)
 # end
-
-# const gridwords = [];
-# let across = 0;
-# let down = 0;
-# const findLetter = (id) => gridwords.find(grid => grid.id === id)
-# while(let i=0; i < grid.length; i++) {
-#     if(gridnums[i] > 0 && grid[i] !== '.' && grid[i+15] !== '.' && (i+14) < 225) {
-#       gridwords.push({
-#         id: i,
-#         letter: grid[i],
-#         number: gridnums[i],
-#         across: true,
-#         clue_across: across,
-#         clue_down: null,
-#         down: null
-#       })
-#       if(i == 14) across = across + 1
-#     } else if(grid[i] !== '.' && grid[i+15] !== '.' && (i+15) < 225) {
-#       gridwords.push({
-#         id: i,
-#         letter: grid[i],
-#         clue_across: across,
-#         clue_down: null,
-#         across: true,
-#         down: null
-#       })
-#       if(i == 14) across = across + 1
-#     } else if(gridnums[i] > 0 && grid[i] !== '.') {
-#       gridwords.push({
-#         id: i,
-#         letter: grid[i],
-#         number: gridnums[i],
-#         across: true,
-#         clue_across: across,
-#         clue_down: null,
-#         down: null
-#       })
-#       if(i == 14) across = across + 1
-#     } else if(grid[i] !== '.') {
-#       gridwords.push({
-#         id: i,
-#         letter: grid[i],
-#         clue_across: across,
-#         clue_down: 0,
-#         across: true,
-#         down: null
-#       })
-#       if(i == 14) across = across + 1
-#     } else {
-#       across = across + 1
-#       gridwords.push({
-#         id: i,
-#         letter: null
-#       })
-#     }
-# }
-
-
-# for(let i=0; i < grid.length; i++) {
-#   if(gridnums[i] > 0 && grid[i] !== '.' && grid[i+15] !== '.' && i < 15){
-#     findLetter(i).down = true
-#     findLetter(i).clue_down = down
-#     down = down + 1
-#   } else if(grid[i] !== '.' && (i-15) >= 0 && grid[i-15] !== '.' && findLetter(i-15).down === true) {
-#     findLetter(i).down = true
-#     findLetter(i).clue_down = findLetter(i-15).clue_down
-#   } else if(gridnums[i] > 0 && grid[i] !== '.' && (i-15) >= 0 && grid[i-15] === '.') {
-#     findLetter(i).down = true
-#     down = down + 1
-#     findLetter(i).clue_down = down
-#   }
-# }
