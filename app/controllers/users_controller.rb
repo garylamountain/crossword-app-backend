@@ -10,4 +10,9 @@ class UsersController < ApplicationController
         render json: user.to_json
     end
 
+    def create
+        user = User.create(username: params[:username], password: params[:password], score: 0)
+        render json: user.to_json
+    end
+
 end
